@@ -3,7 +3,7 @@
 
 int screen_width = 960, screen_height = 640;
 
-static void drawPoint(int x, int y)
+static void drawPoint(GLfloat x, GLfloat y)
 {
 	GLfloat testPoint[] = { x, y };
 
@@ -34,7 +34,7 @@ int main(void)
 	}
 
 	glfwMakeContextCurrent(window);
-	glViewport(0.0f, 0.0f, screen_width, screen_height);
+	glViewport(0, 0, screen_width, screen_height);
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
 	glOrtho(0, screen_width, 0, screen_height, 0, 1);
@@ -45,7 +45,7 @@ int main(void)
 	{
 		glClear(GL_COLOR_BUFFER_BIT);
 
-		drawPoint(screen_width / 2, screen_height / 2);
+		drawPoint(screen_width / 2.0f, screen_height / 2.0f);
 
 		glfwSwapBuffers(window);
 		glfwPollEvents();
